@@ -46,7 +46,7 @@ pub trait ParseFromDot<'a>:
         let node_number = dot_graph.nodes.set.len();
         let edge_number = dot_graph.edges.set.len();
         let mut graph = Self::with_capacity(node_number, edge_number);
-        let mut node_indices = std::collections::HashMap::new();
+        let mut node_indices = std::collections::BTreeMap::new();
         for node in dot_graph.nodes.set {
             let ni = graph.add_node(node.1);
             node_indices.insert(node.0, ni);
